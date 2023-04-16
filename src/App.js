@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./footer/foot";
+import NavigationBar from "./navigation-bar/nav";
+import ProductDisplay from "./products/product-display";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import SingleProduct from "./products/single-product";
 
 function App() {
+  // const jsonData = useFetch('https://api.sampleapis.com/coffee/hot');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavigationBar />
+      {/* <div className="container"> */}
+
+        <Routes>
+          <Route index element={<ProductDisplay />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
+        </Routes>
+      
+      {/* </div> */}
+      <Footer />
+    </BrowserRouter>
   );
 }
 
