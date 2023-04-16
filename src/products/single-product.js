@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "./fetch-api";
 import { useParams } from "react-router-dom";
 import { Card, ListGroup, Button } from "react-bootstrap";
-//t
+
 export default function SingleProduct() {
     const { id } = useParams();
     const productData = useFetch(`http://localhost:4000/coffee/hot/${id}`);
