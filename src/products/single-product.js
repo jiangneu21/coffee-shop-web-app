@@ -2,6 +2,8 @@ import React from "react";
 import useFetch from "./fetch-api";
 import { useParams } from "react-router-dom";
 import { Card, ListGroup, Button } from "react-bootstrap";
+import Review from "./Review";
+
 
 export default function SingleProduct() {
     const { id } = useParams();
@@ -65,8 +67,9 @@ export default function SingleProduct() {
                     </div> */}
                 </div>
                 <div className="row">
-                    <div className="col">
-                        <h1 className="text-center font-weight-bold pb-2">Reviews</h1>
+                    <div className="col my-5">
+                        <h1 className="font-weight-bold pb-2">Reviews</h1>
+                        <Review />
                     </div>
                 </div>
             </div>
