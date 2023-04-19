@@ -22,7 +22,7 @@ function NavigationBar() {
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Menu</Nav.Link>
+                        <Nav.Link href="/">Menu</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
                         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -38,7 +38,7 @@ function NavigationBar() {
                     </Nav>
 
                     <Nav>
-                        <Nav.Link href="#deets">Cart</Nav.Link>
+                        <Nav.Link href="/cart">Cart</Nav.Link>
                         <Nav.Link href="#memes">Sign In</Nav.Link>
                     </Nav>
 

@@ -15,7 +15,7 @@ function Product({ product }) {
                     src={product.image}
                 />
                 <Card.Body style={{ height: '8rem' }}>
-                    <Link to={`/product/${product.id}`}>
+                    <Link to={`/coffee/${product.id}`}>
                         {/* <Card.Text as='h5' className='text-center text-primary'>{product.category}</Card.Text> */}
                         <Card.Title className='text-center '>{product.title}</Card.Title>
                         {/* <Card.Text as='div' className='text-center text-primary'>{product.ingredients}</Card.Text>   */}

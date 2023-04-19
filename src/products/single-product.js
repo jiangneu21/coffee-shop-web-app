@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useFetch from "./fetch-api";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, useNavigate } from "react-router-dom";
 import { Card, ListGroup, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
+import { detailProducts } from "../action/productAction";
 
 export default function SingleProduct() {
+    //console.log(id);
+    const dispatch = useDispatch();
     const { id } = useParams();
-    const productData = useFetch(`http://localhost:4000/coffee/hot/${id}`);
-    const products = JSON.parse(productData);
-    if (!products) {
+    const navigate = useNavigate();
+    const productDetail = useSelector((state) => state.productDetail);
+    const { loading, products } = productDetail;
+
+    useEffect(() => {
+        dispatch(detailProducts(id));
+    }, [dispatch, id]);
+
+    const addToCartHandler = () => {
+        navigate(`/cart/${id}`, { replace: true })
+    }
+    // const { id } = useParams();
+    // const productData = useFetch(`http://localhost:4000/coffee/hot/${id}`);
+    // const products = JSON.parse(productData);
+    if (loading) {
         return <p>Loading...</p>;
     }
 
@@ -54,7 +70,8 @@ export default function SingleProduct() {
                                     </div>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-center">
-                                    <Button variant="outline-success">Add to Cart</Button>
+                                    <Button variant="outline-success"
+                                    onClick={addToCartHandler}>Add to Cart</Button>
                                 </ ListGroup.Item>
                             </ListGroup>
                         </Card>
