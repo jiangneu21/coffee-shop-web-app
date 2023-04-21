@@ -4,7 +4,7 @@ const reviews = [
 
     {
         reviewId: "001",
-        userId: "01",
+        uid: "02",
         userName: "abc",
         productId: "1",
         rating: 3,
@@ -12,7 +12,7 @@ const reviews = [
     },
     {
         reviewId: "002",
-        userId: "01",
+        uid: "02",
         userName: "abc",
         productId: "1",
         rating: 4,
