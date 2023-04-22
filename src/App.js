@@ -7,7 +7,12 @@ import SingleProduct from "./products/single-product";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-// import AdminScreen from "./screens/AdminScreen";
+import AdminScreen from "./screens/AdminScreen";
+import UsersListScreen from "./screens/UsersListScreen";
+import UserEditScreen from "./screens/UserEditScreen";
+import ProductsListScreen from "./screens/ProductsListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+
 
 function App() {
   // const jsonData = useFetch('https://api.sampleapis.com/coffee/hot');
@@ -21,9 +26,13 @@ function App() {
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
-            {/*<Route path="/admin" element={<AdminScreen />} />*/}
-        </Routes>
+            <Route path="/admin" element={<AdminScreen />} />
+            <Route path="/admin/users" element={<UsersListScreen />} />
+            <Route path="/admin/users/:id/edit" element={<UserEditScreen />} />
+            <Route path="/admin/products" element={<ProductsListScreen />} />
+            <Route path="/admin/products/:id/edit" element={<ProductEditScreen />} />
 
+        </Routes>
       <Footer />
     </BrowserRouter>
   );
