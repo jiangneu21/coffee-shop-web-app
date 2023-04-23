@@ -12,6 +12,9 @@ import UsersListScreen from "./screens/UsersListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import ProductsListScreen from "./screens/ProductsListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
+import OrdersListScreen from "./screens/OrdersListScreen";
+import OrderEditScreen from "./screens/OrderEditScreen";
+// import useFetch from "./products/fetch-api";
 
 
 function App() {
@@ -19,16 +22,17 @@ function App() {
   return (
     <BrowserRouter>
       <NavigationBar />
-
         <Routes>
-          <Route index element={<ProductDisplay />} />
-          <Route path="/product/:id" element={<SingleProduct />}/>
+            <Route index element={<ProductDisplay />} />
+            <Route path="/coffee/:id" element={<SingleProduct />}/>
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/admin" element={<AdminScreen />} />
             <Route path="/admin/users" element={<UsersListScreen />} />
             <Route path="/admin/users/:id/edit" element={<UserEditScreen />} />
+            <Route path="/admin/orders" element={<OrdersListScreen />} />
+            <Route path="/admin/orders/:id/edit" element={<OrderEditScreen />} />
             <Route path="/admin/products" element={<ProductsListScreen />} />
             <Route path="/admin/products/:id/edit" element={<ProductEditScreen />} />
 

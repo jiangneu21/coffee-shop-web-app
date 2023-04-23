@@ -1,16 +1,16 @@
 import React from "react";
 import {Container, Table, Col} from "react-bootstrap";
 // import {useSelector} from "react-redux";
-import users from "../data/users";
+import Users from "../data/users";
 // import useFetch from "../Users/fetch-api";
 import {Link} from "react-router-dom";
 
 function UsersListScreen () {
-    /*    const UsersJson = useFetch('http://localhost:4000/coffee/hot');
-        const Users = JSON.parse(UsersJson);
-        if (!Users) {
-            return <p>Loading...</p>;
-        }*/
+    // const UsersJson = useFetch('http://localhost:4000/coffee/hot');
+    // const Users = JSON.parse(UsersJson);
+    if (!Users) {
+        return <p>Loading...</p>;
+    }
     return (
         <Container className="py-5">
             <Link to="/admin" className="btn btn-light">Back</Link>
@@ -27,14 +27,14 @@ function UsersListScreen () {
                 </tr>
                 </thead>
                 <tbody>
-                {users.map((user) => (
+                {Users.map((user) => (
                     <tr key={user.id}>
                         <td><Col xs={2}>{user.id}</Col></td>
                         <td><Col xs={2}>{user.userName}</Col></td>
                         <td><Col xs={6}>{user.email}</Col></td>
                         <td><Col xs={1}>{user.password}</Col></td>
                         <td><Col xs={2}>{user.isAdmin ? "Admin" : "Customer"}</Col></td>
-                        <td>
+                        <td className="text-center">
                             <div className="d-inline-flex">
                                 <Link to={`/admin/users/${user.id}/edit`}>
                                     <button className="btn btn-success">Edit</button>

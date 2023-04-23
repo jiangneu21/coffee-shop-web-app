@@ -6,11 +6,12 @@ import products from "../data/products";
 import {Link} from "react-router-dom";
 
 function ProductsListScreen () {
-/*    const productsJson = useFetch('http://localhost:4000/coffee/hot');
-    const products = JSON.parse(productsJson);
+    // const productsJson = useFetch('http://localhost:4000/coffee/hot');
+    // const products = JSON.parse(productsJson);
+
     if (!products) {
         return <p>Loading...</p>;
-    }*/
+    }
 
     // const createNewProduct = useSelector((state) => state.createNewProduct)
     // const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function ProductsListScreen () {
                     <td><Col xs={2}>{product.ingredients.join(', ')}</Col></td>
                     <td><Col xs={6}>{product.description}</Col></td>
                     <td><Col xs={1}><img src={product.image} width="100px" height="100px" alt=''/></Col></td>
-                    <td><Col xs={2}>{product.price}</Col></td>
+                    <td><Col xs={2}>$ {product.price}</Col></td>
                     <td>
                         <div className="d-inline-flex">
                     <Link to={`/admin/products/${product.id}/edit`}>

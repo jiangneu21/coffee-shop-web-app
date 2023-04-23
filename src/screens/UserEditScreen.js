@@ -2,15 +2,15 @@ import React from "react";
 import {Container, Button, Form} from "react-bootstrap";
 import Users from '../data/users'
 import {useParams, Link} from "react-router-dom";
-import useFetch from "../products/fetch-api";
+// import useFetch from "../products/fetch-api";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 
 const UserEditScreen = () => {
     const { id } = useParams();
     const user = Users.find(user => user.id === id);
-/*    const productData = useFetch(`http://localhost:4000/coffee/hot/${id}`);
-    const products = JSON.parse(productData);*/
+    // const productData = useFetch(`http://localhost:4000/coffee/hot/${id}`);
+    // const products = JSON.parse(productData);
 
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');

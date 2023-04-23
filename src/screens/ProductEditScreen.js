@@ -4,9 +4,9 @@ import {Container, Form, Button, FormCheck} from "react-bootstrap";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import Products from "../data/products";
-import useFetch from "../products/fetch-api";
-import FormCheckLabel from "react-bootstrap/FormCheckLabel";
-import FormCheckInput from "react-bootstrap/FormCheckInput";
+// import useFetch from "../products/fetch-api";
+// import FormCheckLabel from "react-bootstrap/FormCheckLabel";
+// import FormCheckInput from "react-bootstrap/FormCheckInput";
 
 const ProductEditScreen = ({products}) => {
 
@@ -73,6 +73,15 @@ const ProductEditScreen = ({products}) => {
                                     value={product.ingredients}
                                     checked={ingredients === product.ingredients}/>
                         <Form.Check label='Chocolate'
+                                    value={product.ingredients}
+                                    checked={ingredients === product.ingredients}/>
+                        <Form.Check label='Sugar'
+                                    value={product.ingredients}
+                                    checked={ingredients === product.ingredients}/>
+                        <Form.Check label='Whisky'
+                                    value={product.ingredients}
+                                    checked={ingredients === product.ingredients}/>
+                        <Form.Check label='Cream'
                                     value={product.ingredients}
                                     checked={ingredients === product.ingredients}/>
                     </Form.Check>
