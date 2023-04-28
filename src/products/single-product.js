@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import useFetch from "./fetch-api";
-import { useParams, useHistory, useNavigate } from "react-router-dom";
+
+import { useParams, useNavigate } from "react-router-dom";
 import { Card, ListGroup, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { detailProducts } from "../action/productAction";
@@ -9,6 +9,9 @@ export default function SingleProduct() {
     //console.log(id);
     const dispatch = useDispatch();
     const { id } = useParams();
+    
+    console.log(id);
+    
     const navigate = useNavigate();
     const productDetail = useSelector((state) => state.productDetail);
     const { loading, products } = productDetail;

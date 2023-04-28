@@ -28,6 +28,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             return { 
                 ...state,
                 cartItems: state.cartItems.filter(x => x.product !== action.payload) };
+
+        case 'CART_SAVE_SHIPPING_ADDRESS':
+            return { 
+                ...state, 
+                shippingAddress: action.payload };
+
         default:
             return state;
     }

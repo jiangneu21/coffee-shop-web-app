@@ -24,9 +24,9 @@ function ProductDisplay() {
 
             <div className="row">
                 {products.map((product) => (
-                    <div key={product.id}
+                    <div key={product._id}
                         className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                        <Product product={product} />
+                        <Product product={product} id={product.id}/>
                     </div>))}
             </div>
         </div>

@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 
-function Product({ product }) {
+function Product({ product, id}) {
     return (
         <>
             <Card style={{ width: '18rem', height: '95%', border:'none'}} 
@@ -15,7 +15,7 @@ function Product({ product }) {
                     src={product.image}
                 />
                 <Card.Body style={{ height: '8rem' }}>
-                    <Link to={`/coffee/${product.id}`}>
+                    <Link to={`/coffee/${id}`}>
                         {/* <Card.Text as='h5' className='text-center text-primary'>{product.category}</Card.Text> */}
                         <Card.Title className='text-center '>{product.title}</Card.Title>
                         {/* <Card.Text as='div' className='text-center text-primary'>{product.ingredients}</Card.Text>   */}

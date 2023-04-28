@@ -14,19 +14,22 @@ export default function Cart({ location }) {
     const qty = location?.search ? Number(location.search.split('=')[1]) : 1;
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;  
-
+    
     useEffect(() => {
         if (id) {
             dispatch(addCart(id, qty));
         }
 
     }, [dispatch, id, qty]);
-
+console.log(qty);
     const backToMenu = () => {
         window.location.href = "/";
     }
   
     const checkoutHandler = () => {
+        window.location.href = "/login?redirect=shipping";
+        
+
     }
 
     return (
@@ -68,8 +71,8 @@ export default function Cart({ location }) {
                                             <input 
                                                 style={{ width: "50px" }}
                                                 type="number"
-                                                min="1"
-                                                step="1"
+                                                // min="1"
+                                                // step="1"
                                                 value={item.qty}
                                                 onChange={(e) => dispatch(addCart(item.product, Number(e.target.value)))}
                                                
@@ -97,7 +100,7 @@ export default function Cart({ location }) {
                                         <p>${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</p>
                                     </li>
                                     <li className="list-group-item">
-                                        <button className="btn btn-success">Checkout</button>
+                                        <button className="btn btn-success" onClick={checkoutHandler}>Checkout</button>
                                     </li>
                                 </ul>
                                 
