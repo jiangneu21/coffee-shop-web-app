@@ -2,15 +2,22 @@ import axios from 'axios';
 
 const COFFEE_API = 'http://localhost:4000/api/products'
 
-export const listProducts = () => async (dispatch) => {
+export const listProducts = (keyword ='') => async (dispatch) => {
     try {
         dispatch({ type: 'PRODUCT_LIST_REQUEST' });
-        const { data } = await axios.get(COFFEE_API);
-        dispatch({ type: 'PRODUCT_LIST_SUCCESS', payload:data.map((product) => {
-            return { ...product, id: product._id };
-          }),});
+        const { data } = await axios.get(`http://localhost:4000/api/products?keyword=${keyword}`);
+        //const { data } = await axios.get(COFFEE_API);
+        dispatch({
+            type: 'PRODUCT_LIST_SUCCESS',
+            payload: data.map((product) => {
+                return { ...product, id: product._id };
+            }),
+            //payload: data,
+        });
     } catch (error) {
-        dispatch({ type: 'PRODUCT_LIST_FAIL', payload: error.message });
+        dispatch({ 
+            type: 'PRODUCT_LIST_FAIL', 
+            payload: error.message });
     }
 }
 

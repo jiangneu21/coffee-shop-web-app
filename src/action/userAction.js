@@ -81,3 +81,38 @@ export const userUpdateInfo = (user) => async (dispatch, getState) => {
             payload: error.response && error.response.data.message ? error.response.data.message : error.message });
     }
 }
+
+
+export const listUsers = () => async (dispatch, getState) => {
+    try {
+        dispatch({ type: 'USER_LIST_REQUEST' });
+        const { userLogin: { userInfo } } = getState();
+        const { data } = await axios.get('http://localhost:4000/api/users', {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        });
+        dispatch({ type: 'USER_LIST_SUCCESS', payload: data });
+    } catch (error) {
+        dispatch({ 
+            type: 'USER_LIST_FAIL', 
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message });
+    }
+}
+
+export const deleteUser = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: 'USER_DELETE_REQUEST' });
+        const { userLogin: { userInfo } } = getState();
+        await axios.delete(`http://localhost:4000/api/users/${id}`, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        });
+        dispatch({ type: 'USER_DELETE_SUCCESS'});
+    } catch (error) {
+        dispatch({ 
+            type: 'USER_DELETE_FAIL', 
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message });
+    }
+}

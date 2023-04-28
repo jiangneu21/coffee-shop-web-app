@@ -7,6 +7,9 @@ import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch } from "react-redux";
 import { userLogout } from "../action/userAction";
+import SearchBox from "./search";
+import { Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
 
 function NavigationBar() {
 
@@ -55,6 +58,8 @@ function NavigationBar() {
                     </Nav>
 
                     <Nav>
+                        <SearchBox />
+
                         <Nav.Link href="/cart">Cart</Nav.Link>
                         {/* <Nav.Link href="/login">Sign In</Nav.Link> */}
                         {userInfo ? (
@@ -64,12 +69,26 @@ function NavigationBar() {
                                 </LinkContainer>
                                 <NavDropdown.Item href="/login" onClick={logout}>Logout</NavDropdown.Item>
                             </NavDropdown>
-          
-                                
-                            
+
+
+
                         ) : (
                             <Nav.Link href="/login">Sign In</Nav.Link>
                         )}
+                        {userInfo && userInfo.isAdmin && (
+                            <NavDropdown title="Admin" id="adminmenu">
+                                <LinkContainer to="/admin/userlist">
+                                    <NavDropdown.Item>Users</NavDropdown.Item>
+                                </LinkContainer>
+                                {/* <LinkContainer to="/admin/productlist">
+                                    <NavDropdown.Item>Products</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/admin/orderlist">
+                                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                                </LinkContainer> */}
+                            </NavDropdown>
+                        )
+                        }
                     </Nav>
 
                 </Navbar.Collapse>

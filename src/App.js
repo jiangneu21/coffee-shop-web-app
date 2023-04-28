@@ -9,6 +9,8 @@ import Login from "./login/loginScreen";
 import Register from "./login/registerScreen";
 import Profile from "./login/profileScreen";
 import Shipping from "./order/shippingScreen";
+import UserList from "./users/users-list";
+import OrderConfirm from "./order/order-confirm";
 
 function App() {
   // const jsonData = useFetch('https://api.sampleapis.com/coffee/hot');
@@ -25,6 +27,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/shipping" element={<Shipping/>} />
+          <Route path="/search/:keyword" element={<ProductDisplay />} />
+          <Route path='/admin/userlist' element={<UserList/>} />
+          <Route path='/orderconfirm' element={<OrderConfirm/>} />
         </Routes>
       
       {/* </div> */}

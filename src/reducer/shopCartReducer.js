@@ -33,6 +33,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             return { 
                 ...state, 
                 shippingAddress: action.payload };
+        case 'CART_REMOVE_ITEMS':
+            return {
+                ...state,
+                cartItems: []
+            }
+            
 
         default:
             return state;
